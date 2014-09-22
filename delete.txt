@@ -1,0 +1,25 @@
+
+#include<stdio.h>
+#include "stdafx.h"
+#include "string"
+#include "iostream"
+#include "algorithm"
+using namespace std;
+bool find(char a){
+	string delim = "\t\n";
+	int p = delim.find(a);
+	if (p != string::npos)
+		return true;
+	return false;
+}
+int main()
+{
+	string a = "abc\tbcd\tefg\na";
+	cout << a << endl;
+	a.erase(remove_if(a.begin(), a.end(), find), a.end());
+	cout << a;
+	return 0;
+
+}
+
+
